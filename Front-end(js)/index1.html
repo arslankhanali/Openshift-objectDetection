@@ -1,0 +1,20 @@
+<!-- HTML file -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Classifier</title>
+</head>
+<body>
+  <form id="upload-form" action="/upload-image" method="post" enctype="multipart/form-data">
+    <label for="server-url">Server URL:</label>
+    <input type="text" name="server-url" id="server-url" 
+   value="http://localhost:5004" />
+    <input type="file" name="image" />
+    <button type="submit">Upload and classify</button>
+  </form>
+  <div id="image-container"></div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+

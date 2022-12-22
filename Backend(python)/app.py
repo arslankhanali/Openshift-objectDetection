@@ -4,7 +4,7 @@
 # In[13]:
 
 
-get_ipython().run_line_magic('matplotlib', 'inline')
+#get_ipython().run_line_magic('matplotlib', 'inline')
 
 
 # 
@@ -152,7 +152,7 @@ category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABE
 # In[92]:
 
 
-get_ipython().run_line_magic('matplotlib', 'inline')
+#get_ipython().run_line_magic('matplotlib', 'inline')
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
@@ -267,5 +267,8 @@ def upload_image():
 
 
 
-app.run(host='0.0.0.0', port=5000)
+#app.run(debug=True, host='0.0.0.0', port=5000)
 
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)

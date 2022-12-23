@@ -20,7 +20,11 @@
 
 # In[97]:
 
-
+print("""
+\n**************
+***Break  1***
+**************\n
+""")
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'    # Suppress TensorFlow logging (1)
 import pathlib
@@ -53,7 +57,11 @@ for gpu in gpus:
 
 # In[15]:
 
-
+print("""
+\n**************
+***Break  2***
+**************\n
+""")
 # Download and extract model
 def download_model(model_name, model_date):
     base_url = 'http://download.tensorflow.org/models/object_detection/tf2/'
@@ -79,7 +87,11 @@ PATH_TO_MODEL_DIR = download_model(MODEL_NAME, MODEL_DATE)
 
 # In[16]:
 
-
+print("""
+\n**************
+***Break  3***
+**************\n
+""")
 # Download labels file
 def download_labels(filename):
     base_url = 'https://raw.githubusercontent.com/tensorflow/models/master/research/object_detection/data/'
@@ -100,11 +112,20 @@ PATH_TO_LABELS = download_labels(LABEL_FILENAME)
 
 # In[17]:
 
-
+print("""
+\n**************
+***Break  4***
+**************\n
+""")
 import time
+print("masla1")
 from object_detection.utils import label_map_util
+print(PATH_TO_MODEL_DIR + "/saved_model")
+
+print("masla1")
 from object_detection.utils import visualization_utils as viz_utils
 
+print(PATH_TO_MODEL_DIR + "/saved_model")
 PATH_TO_SAVED_MODEL = PATH_TO_MODEL_DIR + "/saved_model"
 
 print('Loading model...', end='')
@@ -128,7 +149,11 @@ print('Done! Took {} seconds'.format(elapsed_time))
 
 # In[18]:
 
-
+print("""
+\n**************
+***Break  6***
+**************\n
+""")
 category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS,
                                                                     use_display_name=True)
 
@@ -151,7 +176,11 @@ category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABE
 
 # In[92]:
 
-
+print("""
+\n**************
+***Break  7***
+**************\n
+""")
 #get_ipython().run_line_magic('matplotlib', 'inline')
 import numpy as np
 from PIL import Image
@@ -239,7 +268,11 @@ def inference(path):
 # ## Create an API to perform inferencing
 
 # In[96]:
-
+print("""
+\n**************
+***Break  7***
+**************\n
+""")
 
 from flask import Flask, request
 from flask import send_file
@@ -265,10 +298,21 @@ def upload_image():
     return send_file('image-classified.jpg', mimetype='image/jpeg')
 
 
-
+print("""
+\n**************
+***Break  9***
+**************\n
+""")
 
 #app.run(debug=True, host='0.0.0.0', port=5000)
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
+
+
+print("""
+\n**************
+***Break  2***
+**************\n
+""")

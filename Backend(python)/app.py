@@ -18,12 +18,13 @@
 # > https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/auto_examples/plot_object_detection_saved_model.html
 # 
 
+
 # In[97]:
 
 print("""
-\n**************
-***Break  1***
-**************\n
+******************************
+***STEP 1: Importing modules**
+******************************\n
 """)
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'    # Suppress TensorFlow logging (1)
@@ -58,9 +59,9 @@ for gpu in gpus:
 # In[15]:
 
 print("""
-\n**************
-***Break  2***
-**************\n
+****************************************
+***STEP 2: Download and extract model***
+****************************************\n
 """)
 # Download and extract model
 def download_model(model_name, model_date):
@@ -88,9 +89,9 @@ PATH_TO_MODEL_DIR = download_model(MODEL_NAME, MODEL_DATE)
 # In[16]:
 
 print("""
-\n**************
-***Break  3***
-**************\n
+****************************************
+***STEP 3: Download labels file      ***
+****************************************\n
 """)
 # Download labels file
 def download_labels(filename):
@@ -113,19 +114,14 @@ PATH_TO_LABELS = download_labels(LABEL_FILENAME)
 # In[17]:
 
 print("""
-\n**************
-***Break  4***
-**************\n
+****************************************
+***STEP 4: load the downloaded model ***
+ignore warnings
+****************************************\n
 """)
 import time
-print("masla1")
 from object_detection.utils import label_map_util
-print(PATH_TO_MODEL_DIR + "/saved_model")
-
-print("masla1")
 from object_detection.utils import visualization_utils as viz_utils
-
-print(PATH_TO_MODEL_DIR + "/saved_model")
 PATH_TO_SAVED_MODEL = PATH_TO_MODEL_DIR + "/saved_model"
 
 print('Loading model...', end='')
@@ -150,9 +146,9 @@ print('Done! Took {} seconds'.format(elapsed_time))
 # In[18]:
 
 print("""
-\n**************
-***Break  6***
-**************\n
+****************************************
+***STEP 5: Load label map data (for plotting) ***
+****************************************\n
 """)
 category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS,
                                                                     use_display_name=True)
@@ -177,9 +173,9 @@ category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABE
 # In[92]:
 
 print("""
-\n**************
-***Break  7***
-**************\n
+****************************************
+***STEP 6: Putting everything together ***
+****************************************\n
 """)
 #get_ipython().run_line_magic('matplotlib', 'inline')
 import numpy as np
@@ -269,9 +265,9 @@ def inference(path):
 
 # In[96]:
 print("""
-\n**************
-***Break  7***
-**************\n
+****************************************
+***STEP 7: Create an API to perform inferencing ***
+****************************************\n
 """)
 
 from flask import Flask, request
@@ -299,20 +295,24 @@ def upload_image():
 
 
 print("""
-\n**************
-***Break  9***
-**************\n
+****************************************
+***STEP 8: Run api on port 5000       
+
+DONE!!
+
+Send post request with an image to the route.
+Object detection will be performed and the image will be returned as a reply from api
+
+***Author: Arslan Khan ******
+****************************************\n
 """)
 
-#app.run(debug=True, host='0.0.0.0', port=5000)
+
+
+# app.run(debug=True, host='0.0.0.0', port=5000)
+
+# with this code you dont have to specify /upload-image when posting
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
-
-
-print("""
-\n**************
-***Break  2***
-**************\n
-""")

@@ -25,7 +25,7 @@ RUN python3 replace.py
 # https://stackoverflow.com/questions/42363105/permission-denied-mkdir-in-container-on-openshift
 RUN adduser node
 RUN adduser node root
-USER node
+
 
 # Set the working directory
 WORKDIR /app
@@ -39,6 +39,8 @@ RUN chown -R node:root /app
 
 # Expose the port
 EXPOSE 5000
+
+USER node
 
 # Run the app
 CMD ["python3", "app.py"]

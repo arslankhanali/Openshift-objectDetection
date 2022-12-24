@@ -34,8 +34,12 @@ e.g. quay.io/arslankhanali/objectdetection-frontend
 
 # FOR FRONT END 
 ## Create image from ContainerFile
-> podman build . -t quay.io/arslankhanali/objectdetection-backend
+> podman build . -t quay.io/arslankhanali/objectdetection-frontend
 
 ## 
 On openshift create route with port 8080 instead of 80
 
+
+# Containers are available at 
+https://quay.io/repository/arslankhanali/objectdetection-frontend
+https://quay.io/repository/arslankhanali/objectdetection-backend
